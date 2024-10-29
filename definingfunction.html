@@ -391,6 +391,37 @@ print(transformed_orange)</code></pre>
 ## 3 3        30    51    75    108    115    139    140
 ## 4 4        32    62   112    167    179    209    214
 ## 5 5        30    49    81    125    142    174    177</code></pre>
+<pre class="r"><code># Define new function to pivot longer
+transform_pivotlong &lt;- function(data_new) {
+  new_data &lt;- 
+    pivot_longer(data_new, cols = all_of(c(&quot;age&quot;, &quot;circumference&quot;)),
+                 names_to = all_of(&quot;characteristics&quot;), values_to = all_of(&quot;values&quot;))
+  return(new_data)
+}
+
+# Run function on loaded data
+transform_pivotlong(Orange)</code></pre>
+<pre><code>## Warning: Using `all_of()` outside of a selecting function was deprecated in tidyselect
+## 1.2.0.
+## ℹ See details at
+##   &lt;https://tidyselect.r-lib.org/reference/faq-selection-context.html&gt;
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<pre><code>## # A tibble: 70 × 3
+##    Tree  characteristics values
+##    &lt;ord&gt; &lt;chr&gt;            &lt;dbl&gt;
+##  1 1     age                118
+##  2 1     circumference       30
+##  3 1     age                484
+##  4 1     circumference       58
+##  5 1     age                664
+##  6 1     circumference       87
+##  7 1     age               1004
+##  8 1     circumference      115
+##  9 1     age               1231
+## 10 1     circumference      120
+## # ℹ 60 more rows</code></pre>
 
 
 

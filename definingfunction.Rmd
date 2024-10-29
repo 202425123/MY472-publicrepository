@@ -25,9 +25,9 @@ print(transformed_orange)
 ```
 ```{r}
 # Define new function to pivot longer
-transform_pivotlong <- function(data) {
+transform_pivotlong <- function(data_new) {
   new_data <- 
-    pivot_longer(data, cols = all_of(c("age", "circumference")),
+    pivot_longer(data_new, cols = all_of(c("age", "circumference")),
                  names_to = all_of("characteristics"), values_to = all_of("values"))
   return(new_data)
 }
