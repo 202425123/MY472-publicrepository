@@ -1,0 +1,26 @@
+---
+title: "definingfunction"
+author: '41384'
+date: "2024-10-29"
+output: html_document
+---
+
+```{r}
+# Load necessary library and dataset
+library(tidyverse)
+data("Orange")
+
+# Define function to pivot wider
+transform_pivotwide <- function(data, cols, name, value) {
+  new_data <-
+    pivot_wider(data, id_cols = all_of(cols),
+              names_from = all_of(name), values_from = all_of(value))
+  return(new_data)
+}
+
+# Run function on loaded data
+transformed_orange <- transform_pivotwide(Orange, cols = "Tree", name = "age", value = "circumference")
+
+print(transformed_orange)
+```
+
