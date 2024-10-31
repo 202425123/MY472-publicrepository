@@ -11,7 +11,7 @@ library(tidyverse)
 data("Orange")
 
 # Define function to pivot wider
-transform_pivotwide <- function(data, cols, name, value) {
+transform_pivotwide <- function(data) {
   new_data <-
     pivot_wider(data, id_cols = all_of("Tree"),
               names_from = all_of("age"), values_from = all_of("circumference"))
@@ -20,8 +20,6 @@ transform_pivotwide <- function(data, cols, name, value) {
 
 # Run function on loaded data
 transformed_orange <- transform_pivotwide(Orange)
-
-print(transformed_orange)
 ```
 ```{r}
 # Define new function to pivot longer
