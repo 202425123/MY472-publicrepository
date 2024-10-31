@@ -13,13 +13,13 @@ data("Orange")
 # Define function to pivot wider
 transform_pivotwide <- function(data, cols, name, value) {
   new_data <-
-    pivot_wider(data, id_cols = all_of(cols),
-              names_from = all_of(name), values_from = all_of(value))
+    pivot_wider(data, id_cols = all_of("Tree"),
+              names_from = all_of("age"), values_from = all_of("circumference"))
   return(new_data)
 }
 
 # Run function on loaded data
-transformed_orange <- transform_pivotwide(Orange, cols = "Tree", name = "age", value = "circumference")
+transformed_orange <- transform_pivotwide(Orange)
 
 print(transformed_orange)
 ```
