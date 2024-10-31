@@ -19,7 +19,7 @@ transform_pivotwide <- function(data) {
 }
 
 # Run function on loaded data
-transformed_orange <- transform_pivotwide(Orange)
+transform_pivotwide(Orange)
 ```
 ```{r}
 # Define new function to pivot longer

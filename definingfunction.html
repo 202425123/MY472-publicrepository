@@ -372,17 +372,15 @@ library(tidyverse)</code></pre>
 <pre class="r"><code>data(&quot;Orange&quot;)
 
 # Define function to pivot wider
-transform_pivotwide &lt;- function(data, cols, name, value) {
+transform_pivotwide &lt;- function(data) {
   new_data &lt;-
-    pivot_wider(data, id_cols = all_of(cols),
-              names_from = all_of(name), values_from = all_of(value))
+    pivot_wider(data, id_cols = all_of(&quot;Tree&quot;),
+              names_from = all_of(&quot;age&quot;), values_from = all_of(&quot;circumference&quot;))
   return(new_data)
 }
 
 # Run function on loaded data
-transformed_orange &lt;- transform_pivotwide(Orange, cols = &quot;Tree&quot;, name = &quot;age&quot;, value = &quot;circumference&quot;)
-
-print(transformed_orange)</code></pre>
+transform_pivotwide(Orange)</code></pre>
 <pre><code>## # A tibble: 5 × 8
 ##   Tree  `118` `484` `664` `1004` `1231` `1372` `1582`
 ##   &lt;ord&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
